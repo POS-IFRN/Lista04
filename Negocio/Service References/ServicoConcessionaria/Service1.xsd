@@ -73,26 +73,38 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateVeiculo">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Modelo" minOccurs="0" name="v" nillable="true" type="q7:Veiculo" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateVeiculoResponse">
+  <xs:element name="SelectVeiculosDisponiveis">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteVeiculo">
+  <xs:element name="SelectVeiculosDisponiveisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Modelo" minOccurs="0" name="v" nillable="true" type="q8:Veiculo" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Modelo" minOccurs="0" name="SelectVeiculosDisponiveisResult" nillable="true" type="q7:ArrayOfVeiculo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteVeiculoResponse">
+  <xs:element name="SelectVeiculosVendidos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectVeiculosVendidosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Modelo" minOccurs="0" name="SelectVeiculosVendidosResult" nillable="true" type="q8:ArrayOfVeiculo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVeiculo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Modelo" minOccurs="0" name="v" nillable="true" type="q9:Veiculo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVeiculoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

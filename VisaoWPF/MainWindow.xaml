@@ -1,0 +1,22 @@
+﻿<Window x:Class="VisaoWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisaoWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Menu x:Name="menu" Height="35" VerticalAlignment="Top">
+            <MenuItem Header="Fabricante" />
+            <MenuItem Header="Veiculo">
+                <MenuItem Header="Compra de veículo"/>
+                <MenuItem Header="Venda de veículo"/>
+                <MenuItem Header="Listagem"/>
+            </MenuItem>
+
+
+        </Menu>
+
+    </Grid>
+</Window>

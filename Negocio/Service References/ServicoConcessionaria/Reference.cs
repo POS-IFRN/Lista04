@@ -51,17 +51,23 @@ namespace Negocio.ServicoConcessionaria {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectVeiculos", ReplyAction="http://tempuri.org/IService1/SelectVeiculosResponse")]
         System.Threading.Tasks.Task<Modelo.Veiculo[]> SelectVeiculosAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectVeiculosDisponiveis", ReplyAction="http://tempuri.org/IService1/SelectVeiculosDisponiveisResponse")]
+        Modelo.Veiculo[] SelectVeiculosDisponiveis();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectVeiculosDisponiveis", ReplyAction="http://tempuri.org/IService1/SelectVeiculosDisponiveisResponse")]
+        System.Threading.Tasks.Task<Modelo.Veiculo[]> SelectVeiculosDisponiveisAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectVeiculosVendidos", ReplyAction="http://tempuri.org/IService1/SelectVeiculosVendidosResponse")]
+        Modelo.Veiculo[] SelectVeiculosVendidos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SelectVeiculosVendidos", ReplyAction="http://tempuri.org/IService1/SelectVeiculosVendidosResponse")]
+        System.Threading.Tasks.Task<Modelo.Veiculo[]> SelectVeiculosVendidosAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateVeiculo", ReplyAction="http://tempuri.org/IService1/UpdateVeiculoResponse")]
         void UpdateVeiculo(Modelo.Veiculo v);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateVeiculo", ReplyAction="http://tempuri.org/IService1/UpdateVeiculoResponse")]
         System.Threading.Tasks.Task UpdateVeiculoAsync(Modelo.Veiculo v);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteVeiculo", ReplyAction="http://tempuri.org/IService1/DeleteVeiculoResponse")]
-        void DeleteVeiculo(Modelo.Veiculo v);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteVeiculo", ReplyAction="http://tempuri.org/IService1/DeleteVeiculoResponse")]
-        System.Threading.Tasks.Task DeleteVeiculoAsync(Modelo.Veiculo v);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -139,20 +145,28 @@ namespace Negocio.ServicoConcessionaria {
             return base.Channel.SelectVeiculosAsync();
         }
         
+        public Modelo.Veiculo[] SelectVeiculosDisponiveis() {
+            return base.Channel.SelectVeiculosDisponiveis();
+        }
+        
+        public System.Threading.Tasks.Task<Modelo.Veiculo[]> SelectVeiculosDisponiveisAsync() {
+            return base.Channel.SelectVeiculosDisponiveisAsync();
+        }
+        
+        public Modelo.Veiculo[] SelectVeiculosVendidos() {
+            return base.Channel.SelectVeiculosVendidos();
+        }
+        
+        public System.Threading.Tasks.Task<Modelo.Veiculo[]> SelectVeiculosVendidosAsync() {
+            return base.Channel.SelectVeiculosVendidosAsync();
+        }
+        
         public void UpdateVeiculo(Modelo.Veiculo v) {
             base.Channel.UpdateVeiculo(v);
         }
         
         public System.Threading.Tasks.Task UpdateVeiculoAsync(Modelo.Veiculo v) {
             return base.Channel.UpdateVeiculoAsync(v);
-        }
-        
-        public void DeleteVeiculo(Modelo.Veiculo v) {
-            base.Channel.DeleteVeiculo(v);
-        }
-        
-        public System.Threading.Tasks.Task DeleteVeiculoAsync(Modelo.Veiculo v) {
-            return base.Channel.DeleteVeiculoAsync(v);
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿<Window x:Class="VisaoWPF.CmpVeiculo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisaoWPF"
+        mc:Ignorable="d"
+        Title="CmpVeiculo" Height="300" Width="485.981">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtId" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Id" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtModelo" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" Text="Modelo" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtAno" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="135,10,0,0" TextWrapping="Wrap" Text="Ano" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtValorCompra" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="260,10,0,0" TextWrapping="Wrap" Text="Valor Compra" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmbFabricantes" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="260,38,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnComprar" Grid.ColumnSpan="2" Content="COMPRAR" HorizontalAlignment="Left" Margin="393,10,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="btnComprar_Click"/>
+        <DatePicker x:Name="dtDataCompra" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="135,38,0,0" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

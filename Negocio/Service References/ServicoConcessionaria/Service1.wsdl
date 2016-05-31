@@ -43,17 +43,23 @@
   <wsdl:message name="IService1_SelectVeiculos_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelectVeiculosResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SelectVeiculosDisponiveis_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVeiculosDisponiveis" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectVeiculosDisponiveis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVeiculosDisponiveisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectVeiculosVendidos_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVeiculosVendidos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectVeiculosVendidos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectVeiculosVendidosResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_UpdateVeiculo_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateVeiculo" />
   </wsdl:message>
   <wsdl:message name="IService1_UpdateVeiculo_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateVeiculoResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_DeleteVeiculo_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteVeiculo" />
-  </wsdl:message>
-  <wsdl:message name="IService1_DeleteVeiculo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteVeiculoResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InsertFabricante">
@@ -80,13 +86,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectVeiculos" message="tns:IService1_SelectVeiculos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectVeiculosResponse" message="tns:IService1_SelectVeiculos_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SelectVeiculosDisponiveis">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectVeiculosDisponiveis" message="tns:IService1_SelectVeiculosDisponiveis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectVeiculosDisponiveisResponse" message="tns:IService1_SelectVeiculosDisponiveis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectVeiculosVendidos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectVeiculosVendidos" message="tns:IService1_SelectVeiculosVendidos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectVeiculosVendidosResponse" message="tns:IService1_SelectVeiculosVendidos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateVeiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateVeiculo" message="tns:IService1_UpdateVeiculo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateVeiculoResponse" message="tns:IService1_UpdateVeiculo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteVeiculo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteVeiculo" message="tns:IService1_DeleteVeiculo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteVeiculoResponse" message="tns:IService1_DeleteVeiculo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -145,8 +155,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateVeiculo">
-      <soap:operation soapAction="http://tempuri.org/IService1/UpdateVeiculo" style="document" />
+    <wsdl:operation name="SelectVeiculosDisponiveis">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectVeiculosDisponiveis" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -154,8 +164,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteVeiculo">
-      <soap:operation soapAction="http://tempuri.org/IService1/DeleteVeiculo" style="document" />
+    <wsdl:operation name="SelectVeiculosVendidos">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectVeiculosVendidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVeiculo">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateVeiculo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

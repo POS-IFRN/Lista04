@@ -24,21 +24,24 @@ namespace Negocio
             return veiculos;
         }
 
+        public List<Modelo.Veiculo> SelectDisponiveis()
+        {
+            List<Modelo.Veiculo> veiculos = sr.SelectVeiculosDisponiveis().ToList();
+            return veiculos;
+        }
+
+        public List<Modelo.Veiculo> SelectVendidos()
+        {
+            List<Modelo.Veiculo> veiculos = sr.SelectVeiculosVendidos().ToList();
+            return veiculos;
+        }
+
         public void Update(Modelo.Veiculo v)
         {
             List<Modelo.Veiculo> veiculos = Select();
             if (veiculos.Exists(veic => veic.Id == v.Id))
             {
                 sr.UpdateVeiculo(v);
-            }
-        }
-
-        public void Delete(Modelo.Veiculo v)
-        {
-            List<Modelo.Veiculo> veiculos = Select();
-            if (veiculos.Exists(veic => veic.Id == v.Id))
-            {
-                sr.DeleteVeiculo(v);
             }
         }
     }

@@ -12,7 +12,7 @@ namespace WSConcessionaria
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        private Dados.ConcessionariaDataContext dc = new Dados.ConcessionariaDataContext();
+        private LojaDataContext dc = new LojaDataContext();
         public void InsertFabricante(Modelo.Fabricante f)
         {
             if (f == null)
@@ -20,7 +20,7 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Fabricante nulo");
             }
 
-            dc.Fabricantes.InsertOnSubmit(new Dados.Fabricante { Id = f.Id, Descricao = f.Descricao });
+            dc.Fabricantes.InsertOnSubmit(new Fabricante { Id = f.Id, Descricao = f.Descricao });
             dc.SubmitChanges();
         }
 
@@ -28,7 +28,7 @@ namespace WSConcessionaria
         {
             IQueryable objs = from f in dc.Fabricantes select f;
             List <Modelo.Fabricante> fabricantes = new List<Modelo.Fabricante>();
-            foreach (Dados.Fabricante obj in objs)
+            foreach (Fabricante obj in objs)
             {
                 Modelo.Fabricante f = new Modelo.Fabricante
                 {
@@ -48,7 +48,7 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Fabricante nulo");
             }
 
-            Dados.Fabricante fabr = (from fab in dc.Fabricantes where fab.Id == f.Id select fab).Single();
+            Fabricante fabr = (from fab in dc.Fabricantes where fab.Id == f.Id select fab).Single();
             fabr.Descricao = f.Descricao;
             dc.SubmitChanges();
         }
@@ -60,7 +60,7 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Fabricante nulo");
             }
 
-            Dados.Fabricante fabr = (from fab in dc.Fabricantes where fab.Id == f.Id select fab).Single();
+            Fabricante fabr = (from fab in dc.Fabricantes where fab.Id == f.Id select fab).Single();
             dc.Fabricantes.DeleteOnSubmit(fabr);
             dc.SubmitChanges();
         }
@@ -72,16 +72,16 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Veiculo nulo");
             }
 
-            dc.Veiculos.InsertOnSubmit(new Dados.Veiculo {
+            dc.Veiculos.InsertOnSubmit(new Veiculo {
                 Id = v.Id,
                 Modelo = v.Modelo,
                 Ano = v.Ano,
                 idFabricante = v.IdFabricante,
                 DataCompra = v.DataCompra,
-                DataVenda = v.DataVenda,
+                DataVenda = null,
                 ValorCompra = v.ValorCompra,
-                ValorVenda = v.ValorVenda,
-                PrecoVenda = v.PrecoVenda
+                ValorVenda = null,
+                PrecoVenda = null
             });
             dc.SubmitChanges();
         }
@@ -90,7 +90,7 @@ namespace WSConcessionaria
         {
             IQueryable objs = from v in dc.Veiculos select v;
             List<Modelo.Veiculo> fabricantes = new List<Modelo.Veiculo>();
-            foreach (Dados.Veiculo obj in objs)
+            foreach (Veiculo obj in objs)
             {
                 Modelo.Veiculo v = new Modelo.Veiculo
                 {
@@ -110,6 +110,56 @@ namespace WSConcessionaria
             return fabricantes;
         }
 
+        public List<Modelo.Veiculo> SelectVeiculosDisponiveis()
+        {
+            IQueryable objs = from v in dc.Veiculos where v.DataVenda == null select v;
+            List<Modelo.Veiculo> fabricantes = new List<Modelo.Veiculo>();
+            foreach (Veiculo obj in objs)
+            {
+                Modelo.Veiculo v = new Modelo.Veiculo
+                {
+                    Id = obj.Id,
+                    Modelo = obj.Modelo,
+                    Ano = Convert.ToInt16(obj.Ano),
+                    IdFabricante = Convert.ToInt16(obj.idFabricante),
+                    DataCompra = Convert.ToDateTime(obj.DataCompra),
+                    DataVenda = Convert.ToDateTime(obj.DataVenda),
+                    ValorCompra = Convert.ToDecimal(obj.ValorCompra),
+                    ValorVenda = Convert.ToDecimal(obj.ValorVenda),
+                    PrecoVenda = Convert.ToDecimal(obj.PrecoVenda)
+                };
+                fabricantes.Add(v);
+            }
+
+            return fabricantes;
+        }
+
+        public List<Modelo.Veiculo> SelectVeiculosVendidos()
+        {
+            IQueryable objs = from v in dc.Veiculos where v.DataVenda != null select v;
+            List<Modelo.Veiculo> fabricantes = new List<Modelo.Veiculo>();
+            foreach (Veiculo obj in objs)
+            {
+                Modelo.Veiculo v = new Modelo.Veiculo
+                {
+                    Id = obj.Id,
+                    Modelo = obj.Modelo,
+                    Ano = Convert.ToInt16(obj.Ano),
+                    IdFabricante = Convert.ToInt16(obj.idFabricante),
+                    DataCompra = Convert.ToDateTime(obj.DataCompra),
+                    DataVenda = Convert.ToDateTime(obj.DataVenda),
+                    ValorCompra = Convert.ToDecimal(obj.ValorCompra),
+                    ValorVenda = Convert.ToDecimal(obj.ValorVenda),
+                    PrecoVenda = Convert.ToDecimal(obj.PrecoVenda)
+                };
+                fabricantes.Add(v);
+            }
+
+            return fabricantes;
+        }
+
+
+
         public void UpdateVeiculo(Modelo.Veiculo v)
         {
             if (v == null)
@@ -117,7 +167,7 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Veiculo nulo");
             }
 
-            Dados.Veiculo fabr = (from fab in dc.Veiculos where fab.Id == v.Id select fab).Single();
+            Veiculo fabr = (from fab in dc.Veiculos where fab.Id == v.Id select fab).Single();
             fabr.Modelo = v.Modelo;
             fabr.Ano = Convert.ToInt16(v.Ano);
             fabr.idFabricante = Convert.ToInt16(v.IdFabricante);
@@ -129,17 +179,6 @@ namespace WSConcessionaria
             dc.SubmitChanges();
         }
 
-        public void DeleteVeiculo(Modelo.Veiculo v)
-        {
-            if (v == null)
-            {
-                throw new ArgumentNullException("Veiculo nulo");
-            }
-
-            Dados.Veiculo veic = (from vei in dc.Veiculos where vei.Id == v.Id select vei).Single();
-            dc.Veiculos.DeleteOnSubmit(veic);
-            dc.SubmitChanges();
-        }
 
 
     }

@@ -33,10 +33,14 @@ namespace WSConcessionaria
         List<Modelo.Veiculo> SelectVeiculos();
 
         [OperationContract]
-        void UpdateVeiculo(Modelo.Veiculo v);
+        List<Modelo.Veiculo> SelectVeiculosDisponiveis();
 
         [OperationContract]
-        void DeleteVeiculo(Modelo.Veiculo v);
+        List<Modelo.Veiculo> SelectVeiculosVendidos();
+
+        [OperationContract]
+        void UpdateVeiculo(Modelo.Veiculo v);
+
     }
 
 
