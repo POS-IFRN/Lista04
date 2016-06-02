@@ -19,11 +19,10 @@ namespace WSConcessionaria
 	using System.Linq;
 	using System.Linq.Expressions;
 	using System.ComponentModel;
-    using System.Runtime.Serialization;
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Concessionaria")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="20131011110380")]
 	public partial class LojaDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -40,7 +39,7 @@ namespace WSConcessionaria
     #endregion
 		
 		public LojaDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ConcessionariaConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["_20131011110380ConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -85,16 +84,16 @@ namespace WSConcessionaria
 			}
 		}
 	}
-	[DataContract]
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fabricante")]
 	public partial class Fabricante : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private int _id;
 		
-		private string _Descricao;
+		private string _descricao;
 		
 		private EntitySet<Veiculo> _Veiculos;
 		
@@ -102,10 +101,10 @@ namespace WSConcessionaria
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnDescricaoChanging(string value);
-    partial void OnDescricaoChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OndescricaoChanging(string value);
+    partial void OndescricaoChanged();
     #endregion
 		
 		public Fabricante()
@@ -113,48 +112,48 @@ namespace WSConcessionaria
 			this._Veiculos = new EntitySet<Veiculo>(new Action<Veiculo>(this.attach_Veiculos), new Action<Veiculo>(this.detach_Veiculos));
 			OnCreated();
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
 		{
 			get
 			{
-				return this._Id;
+				return this._id;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._id != value))
 				{
-					this.OnIdChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		[DataMember]
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descricao", DbType="VarChar(50)")]
-		public string Descricao
-		{
-			get
-			{
-				return this._Descricao;
-			}
-			set
-			{
-				if ((this._Descricao != value))
-				{
-					this.OnDescricaoChanging(value);
-					this.SendPropertyChanging();
-					this._Descricao = value;
-					this.SendPropertyChanged("Descricao");
-					this.OnDescricaoChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fabricante_Veiculo", Storage="_Veiculos", ThisKey="Id", OtherKey="idFabricante")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descricao", DbType="VarChar(50)")]
+		public string descricao
+		{
+			get
+			{
+				return this._descricao;
+			}
+			set
+			{
+				if ((this._descricao != value))
+				{
+					this.OndescricaoChanging(value);
+					this.SendPropertyChanging();
+					this._descricao = value;
+					this.SendPropertyChanged("descricao");
+					this.OndescricaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fabricante_Veiculo", Storage="_Veiculos", ThisKey="id", OtherKey="idFabricante")]
 		public EntitySet<Veiculo> Veiculos
 		{
 			get
@@ -199,14 +198,14 @@ namespace WSConcessionaria
 			entity.Fabricante = null;
 		}
 	}
-	[DataContract]
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Veiculo")]
 	public partial class Veiculo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private int _id;
 		
 		private string _Modelo;
 		
@@ -230,8 +229,8 @@ namespace WSConcessionaria
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
     partial void OnModeloChanging(string value);
     partial void OnModeloChanged();
     partial void OnAnoChanging(System.Nullable<int> value);
@@ -255,28 +254,28 @@ namespace WSConcessionaria
 			this._Fabricante = default(EntityRef<Fabricante>);
 			OnCreated();
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
 		{
 			get
 			{
-				return this._Id;
+				return this._id;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._id != value))
 				{
-					this.OnIdChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(50)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(50)")]
 		public string Modelo
 		{
 			get
@@ -295,8 +294,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ano", DbType="Int")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ano", DbType="Int")]
 		public System.Nullable<int> Ano
 		{
 			get
@@ -315,8 +314,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFabricante", DbType="Int")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFabricante", DbType="Int")]
 		public System.Nullable<int> idFabricante
 		{
 			get
@@ -339,8 +338,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataCompra", DbType="DateTime")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataCompra", DbType="DateTime")]
 		public System.Nullable<System.DateTime> DataCompra
 		{
 			get
@@ -359,8 +358,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorCompra", DbType="Money")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorCompra", DbType="Money")]
 		public System.Nullable<decimal> ValorCompra
 		{
 			get
@@ -379,8 +378,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecoVenda", DbType="Money")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecoVenda", DbType="Money")]
 		public System.Nullable<decimal> PrecoVenda
 		{
 			get
@@ -399,8 +398,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataVenda", DbType="DateTime")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataVenda", DbType="DateTime")]
 		public System.Nullable<System.DateTime> DataVenda
 		{
 			get
@@ -419,8 +418,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-        [DataMember]
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorVenda", DbType="Money")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorVenda", DbType="Money")]
 		public System.Nullable<decimal> ValorVenda
 		{
 			get
@@ -440,7 +439,7 @@ namespace WSConcessionaria
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fabricante_Veiculo", Storage="_Fabricante", ThisKey="idFabricante", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fabricante_Veiculo", Storage="_Fabricante", ThisKey="idFabricante", OtherKey="id", IsForeignKey=true)]
 		public Fabricante Fabricante
 		{
 			get
@@ -463,7 +462,7 @@ namespace WSConcessionaria
 					if ((value != null))
 					{
 						value.Veiculos.Add(this);
-						this._idFabricante = value.Id;
+						this._idFabricante = value.id;
 					}
 					else
 					{

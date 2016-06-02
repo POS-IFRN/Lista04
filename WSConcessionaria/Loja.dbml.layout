@@ -2,23 +2,23 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Loja">
   <DataContextMoniker Name="/LojaDataContext" />
   <nestedChildShapes>
-    <classShape Id="6cfb9c25-4737-4baf-b993-64e2ee9a19ff" absoluteBounds="4.25, 1.75, 2, 1.1939925130208333">
+    <classShape Id="dc118ca2-9b8f-4a1b-a1b0-cb583083e4c2" absoluteBounds="2.125, 1.875, 2, 1.1939925130208333">
       <DataClassMoniker Name="/LojaDataContext/Fabricante" />
       <nestedChildShapes>
-        <elementListCompartment Id="bab174e3-8b81-4fd5-b630-8136a4bb75a4" absoluteBounds="4.265, 2.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c462b38b-b026-4f40-b29c-5c35d228c51c" absoluteBounds="2.14, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8bf18d9f-97c4-447d-9ac9-07044fb27e61" absoluteBounds="2, 2.625, 2, 2.5401025390625">
+    <classShape Id="21abfe96-b5b2-4b51-823e-1a3a0cb23238" absoluteBounds="4.5, 2.25, 2, 2.5401025390625">
       <DataClassMoniker Name="/LojaDataContext/Veiculo" />
       <nestedChildShapes>
-        <elementListCompartment Id="b34f8227-e94d-456a-9524-6370bca6a52a" absoluteBounds="2.0149999999999997, 3.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="94309f25-b294-42a8-b646-0645386074f2" absoluteBounds="4.5150000000000006, 2.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.25 : 2.1874995); (3 : 2.1874995); (3 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.125 : 2.65949625651042); (4.5 : 2.65949625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LojaDataContext/Fabricante/Fabricante_Veiculo" />
       <nodes>
-        <classShapeMoniker Id="6cfb9c25-4737-4baf-b993-64e2ee9a19ff" />
-        <classShapeMoniker Id="8bf18d9f-97c4-447d-9ac9-07044fb27e61" />
+        <classShapeMoniker Id="dc118ca2-9b8f-4a1b-a1b0-cb583083e4c2" />
+        <classShapeMoniker Id="21abfe96-b5b2-4b51-823e-1a3a0cb23238" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

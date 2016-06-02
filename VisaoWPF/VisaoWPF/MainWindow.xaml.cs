@@ -36,5 +36,12 @@ namespace VisaoWPF
             var abrir = new CmpVeiculo();
             abrir.Show();
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            var abrir = new LstVeiculos();
+            abrir.Show();
+        }
+
     }
 }

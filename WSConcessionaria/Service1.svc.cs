@@ -20,7 +20,7 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Fabricante nulo");
             }
 
-            dc.Fabricantes.InsertOnSubmit(new Fabricante { Id = f.Id, Descricao = f.Descricao });
+            dc.Fabricantes.InsertOnSubmit(new Fabricante { id = f.Id, descricao = f.Descricao });
             dc.SubmitChanges();
         }
 
@@ -32,8 +32,8 @@ namespace WSConcessionaria
             {
                 Modelo.Fabricante f = new Modelo.Fabricante
                 {
-                    Id = obj.Id,
-                    Descricao = obj.Descricao
+                    Id = obj.id,
+                    Descricao = obj.descricao
                 };
                 fabricantes.Add(f);
             }
@@ -48,8 +48,8 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Fabricante nulo");
             }
 
-            Fabricante fabr = (from fab in dc.Fabricantes where fab.Id == f.Id select fab).Single();
-            fabr.Descricao = f.Descricao;
+            Fabricante fabr = (from fab in dc.Fabricantes where fab.id == f.Id select fab).Single();
+            fabr.descricao = f.Descricao;
             dc.SubmitChanges();
         }
 
@@ -60,7 +60,7 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Fabricante nulo");
             }
 
-            Fabricante fabr = (from fab in dc.Fabricantes where fab.Id == f.Id select fab).Single();
+            Fabricante fabr = (from fab in dc.Fabricantes where fab.id == f.Id select fab).Single();
             dc.Fabricantes.DeleteOnSubmit(fabr);
             dc.SubmitChanges();
         }
@@ -73,7 +73,7 @@ namespace WSConcessionaria
             }
 
             dc.Veiculos.InsertOnSubmit(new Veiculo {
-                Id = v.Id,
+                id = v.Id,
                 Modelo = v.Modelo,
                 Ano = v.Ano,
                 idFabricante = v.IdFabricante,
@@ -94,7 +94,7 @@ namespace WSConcessionaria
             {
                 Modelo.Veiculo v = new Modelo.Veiculo
                 {
-                    Id = obj.Id,
+                    Id = obj.id,
                     Modelo = obj.Modelo,
                     Ano = Convert.ToInt16(obj.Ano),
                     IdFabricante = Convert.ToInt16(obj.idFabricante),
@@ -118,7 +118,7 @@ namespace WSConcessionaria
             {
                 Modelo.Veiculo v = new Modelo.Veiculo
                 {
-                    Id = obj.Id,
+                    Id = obj.id,
                     Modelo = obj.Modelo,
                     Ano = Convert.ToInt16(obj.Ano),
                     IdFabricante = Convert.ToInt16(obj.idFabricante),
@@ -142,7 +142,7 @@ namespace WSConcessionaria
             {
                 Modelo.Veiculo v = new Modelo.Veiculo
                 {
-                    Id = obj.Id,
+                    Id = obj.id,
                     Modelo = obj.Modelo,
                     Ano = Convert.ToInt16(obj.Ano),
                     IdFabricante = Convert.ToInt16(obj.idFabricante),
@@ -167,7 +167,7 @@ namespace WSConcessionaria
                 throw new ArgumentNullException("Veiculo nulo");
             }
 
-            Veiculo fabr = (from fab in dc.Veiculos where fab.Id == v.Id select fab).Single();
+            Veiculo fabr = (from fab in dc.Veiculos where fab.id == v.Id select fab).Single();
             fabr.Modelo = v.Modelo;
             fabr.Ano = Convert.ToInt16(v.Ano);
             fabr.idFabricante = Convert.ToInt16(v.IdFabricante);

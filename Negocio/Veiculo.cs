@@ -21,18 +21,21 @@ namespace Negocio
         public List<Modelo.Veiculo> Select()
         {
             List<Modelo.Veiculo> veiculos = sr.SelectVeiculos().ToList();
+            if (veiculos.Count == 0) return null;
             return veiculos;
         }
 
         public List<Modelo.Veiculo> SelectDisponiveis()
         {
             List<Modelo.Veiculo> veiculos = sr.SelectVeiculosDisponiveis().ToList();
+            if (veiculos.Count == 0) return null;
             return veiculos;
         }
 
         public List<Modelo.Veiculo> SelectVendidos()
         {
             List<Modelo.Veiculo> veiculos = sr.SelectVeiculosVendidos().ToList();
+            if (veiculos.Count == 0) return null;
             return veiculos;
         }
 

@@ -21,6 +21,7 @@ namespace Negocio
         public List<Modelo.Fabricante> Select()
         {
             List<Modelo.Fabricante> fabricantes = sr.SelectFabricantes().ToList();
+            if (fabricantes.Count == 0) return null;
             return fabricantes;
         }
 
