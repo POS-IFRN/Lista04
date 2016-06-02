@@ -18,6 +18,7 @@ namespace WSConcessionaria
 	using System.Reflection;
 	using System.Linq;
 	using System.Linq.Expressions;
+    using System.Runtime.Serialization;
 	using System.ComponentModel;
 	using System;
 	
@@ -83,9 +84,9 @@ namespace WSConcessionaria
 				return this.GetTable<Veiculo>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fabricante")]
+    }
+	[DataContract]
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fabricante")]
 	public partial class Fabricante : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -112,8 +113,8 @@ namespace WSConcessionaria
 			this._Veiculos = new EntitySet<Veiculo>(new Action<Veiculo>(this.attach_Veiculos), new Action<Veiculo>(this.detach_Veiculos));
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id
 		{
 			get
@@ -132,8 +133,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descricao", DbType="VarChar(50)")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descricao", DbType="VarChar(50)")]
 		public string descricao
 		{
 			get
@@ -197,9 +198,9 @@ namespace WSConcessionaria
 			this.SendPropertyChanging();
 			entity.Fabricante = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Veiculo")]
+    }
+	[DataContract]
+    [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Veiculo")]
 	public partial class Veiculo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -254,8 +255,8 @@ namespace WSConcessionaria
 			this._Fabricante = default(EntityRef<Fabricante>);
 			OnCreated();
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id
 		{
 			get
@@ -274,8 +275,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(50)")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(50)")]
 		public string Modelo
 		{
 			get
@@ -294,8 +295,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ano", DbType="Int")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ano", DbType="Int")]
 		public System.Nullable<int> Ano
 		{
 			get
@@ -314,8 +315,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFabricante", DbType="Int")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFabricante", DbType="Int")]
 		public System.Nullable<int> idFabricante
 		{
 			get
@@ -338,8 +339,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataCompra", DbType="DateTime")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataCompra", DbType="DateTime")]
 		public System.Nullable<System.DateTime> DataCompra
 		{
 			get
@@ -358,8 +359,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorCompra", DbType="Money")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorCompra", DbType="Money")]
 		public System.Nullable<decimal> ValorCompra
 		{
 			get
@@ -378,8 +379,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecoVenda", DbType="Money")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecoVenda", DbType="Money")]
 		public System.Nullable<decimal> PrecoVenda
 		{
 			get
@@ -398,8 +399,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataVenda", DbType="DateTime")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataVenda", DbType="DateTime")]
 		public System.Nullable<System.DateTime> DataVenda
 		{
 			get
@@ -418,8 +419,8 @@ namespace WSConcessionaria
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorVenda", DbType="Money")]
+        [DataMember]
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValorVenda", DbType="Money")]
 		public System.Nullable<decimal> ValorVenda
 		{
 			get
