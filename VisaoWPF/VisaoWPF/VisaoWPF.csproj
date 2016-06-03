@@ -67,6 +67,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LstVeiculosDisponiveis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,6 +87,9 @@
     </Compile>
     <Compile Include="LstVeiculos.xaml.cs">
       <DependentUpon>LstVeiculos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LstVeiculosDisponiveis.xaml.cs">
+      <DependentUpon>LstVeiculosDisponiveis.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

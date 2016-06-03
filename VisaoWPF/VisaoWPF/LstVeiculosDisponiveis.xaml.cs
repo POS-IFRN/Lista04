@@ -15,18 +15,18 @@ using System.Windows.Shapes;
 namespace VisaoWPF
 {
     /// <summary>
-    /// Interaction logic for LstVeiculos.xaml
+    /// Interaction logic for LstVeiculosDisponiveis.xaml
     /// </summary>
-    public partial class LstVeiculos : Window
+    public partial class LstVeiculosDisponiveis : Window
     {
-        public LstVeiculos()
+        public LstVeiculosDisponiveis()
         {
             InitializeComponent();
         }
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
-            var veiculos = new Negocio.Veiculo().Select();
+            var veiculos = new Negocio.Veiculo().SelectDisponiveis();
             var fabricantes = new Negocio.Fabricante().Select();
             var vplusf = from v in veiculos join fab in fabricantes on v.IdFabricante equals fab.Id select new { Veiculo = v, Fabricante = fab };
 
