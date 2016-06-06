@@ -18,6 +18,7 @@
         <ComboBox x:Name="cmbFabricantes" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="260,38,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnComprar" Grid.ColumnSpan="2" Content="COMPRAR" HorizontalAlignment="Left" Margin="393,10,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="btnComprar_Click"/>
         <DatePicker x:Name="dtDataCompra" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="135,38,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtVenda" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="260,65,0,0" TextWrapping="Wrap" Text="Preco Venda" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

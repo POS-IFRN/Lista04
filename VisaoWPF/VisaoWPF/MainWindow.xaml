@@ -12,6 +12,8 @@
             <MenuItem Header="Veículo">
                 <MenuItem Header="Cadastrar compra" Click="MenuItem_Click_1" />
                 <MenuItem Header="Listar veículos" Click="MenuItem_Click_2" />
+                <MenuItem Header="Listar veículos comprados" Click="MenuItem_Click_3" />
+                <MenuItem Header="Listar veículos vendidos" Click="MenuItem_Click_4" />
             </MenuItem>
         </Menu>
     </Grid>

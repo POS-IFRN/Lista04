@@ -43,5 +43,16 @@ namespace VisaoWPF
             abrir.Show();
         }
 
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            var abrir = new LstVeiculosDisponiveis();
+            abrir.Show();
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            var abrir = new LstVeiculosVendidos();
+            abrir.Show();
+        }
     }
 }

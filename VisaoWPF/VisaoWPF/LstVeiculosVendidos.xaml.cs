@@ -15,18 +15,18 @@ using System.Windows.Shapes;
 namespace VisaoWPF
 {
     /// <summary>
-    /// Interaction logic for LstVeiculosDisponiveis.xaml
+    /// Interaction logic for LstVeiculosVendidos.xaml
     /// </summary>
-    public partial class LstVeiculosDisponiveis : Window
+    public partial class LstVeiculosVendidos : Window
     {
-        public LstVeiculosDisponiveis()
+        public LstVeiculosVendidos()
         {
             InitializeComponent();
         }
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
-            var veiculos = new Negocio.Veiculo().SelectDisponiveis();
+            var veiculos = new Negocio.Veiculo().SelectVendidos();
             var fabricantes = new Negocio.Fabricante().Select();
             var vplusf = from v in veiculos
                          join fab in fabricantes on v.IdFabricante equals fab.Id
@@ -37,6 +37,9 @@ namespace VisaoWPF
                              ano = v.Ano,
                              dtCompra = v.DataCompra,
                              vCompra = v.ValorCompra,
+                             pVenda = v.PrecoVenda,
+                             dtVenda = v.DataVenda,
+                             vVenda = v.ValorVenda,
                              desc = fab.Descricao,
                              idFab = fab.Id
                          };

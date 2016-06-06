@@ -44,6 +44,7 @@ namespace VisaoWPF
                 Ano = int.Parse(txtAno.Text),
                 ValorCompra = decimal.Parse(txtValorCompra.Text),
                 DataCompra = (DateTime)dtDataCompra.SelectedDate,
+                ValorVenda = decimal.Parse(txtVenda.Text),
                 IdFabricante = Convert.ToInt16(cmbFabricantes.SelectedValue)
             };
 

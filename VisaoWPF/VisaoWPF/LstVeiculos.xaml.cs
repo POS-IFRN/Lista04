@@ -35,6 +35,9 @@ namespace VisaoWPF
                 ano = v.Ano,
                 dtCompra = v.DataCompra,
                 vCompra = v.ValorCompra,
+                pVenda = v.PrecoVenda,
+                dtVenda = v.DataVenda,
+                vVenda = v.ValorVenda,
                 desc = fab.Descricao,
                 idFab = fab.Id
             };
