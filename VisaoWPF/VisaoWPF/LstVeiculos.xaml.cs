@@ -28,10 +28,19 @@ namespace VisaoWPF
         {
             var veiculos = new Negocio.Veiculo().Select();
             var fabricantes = new Negocio.Fabricante().Select();
-            var vplusf = from v in veiculos join fab in fabricantes on v.IdFabricante equals fab.Id select new { Veiculo = v, Fabricante = fab };
+            var vplusf = from v in veiculos join fab in fabricantes on v.IdFabricante equals fab.Id select new
+            {
+                id = v.Id,
+                modelo = v.Modelo,
+                ano = v.Ano,
+                dtCompra = v.DataCompra,
+                vCompra = v.ValorCompra,
+                desc = fab.Descricao,
+                idFab = fab.Id
+            };
 
             dataGrid.ItemsSource = null;
-            dataGrid.ItemsSource = vplusf.OrderBy(desc => desc.Fabricante.Descricao).ThenBy(mode => mode.Veiculo.Modelo);
+            dataGrid.ItemsSource = vplusf.OrderBy(desc => desc.desc).ThenBy(mode => mode.modelo);
         }
     }
 }
