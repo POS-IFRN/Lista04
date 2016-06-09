@@ -19,9 +19,19 @@ namespace VisaoWPF
     /// </summary>
     public partial class vndVeiculo : Window
     {
+        private Modelo.Veiculo v;
         public vndVeiculo(Modelo.Veiculo v)
         {
             InitializeComponent();
+            txtId.Text = v.Id.ToString();
+            this.v = v;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            v.PrecoVenda = Convert.ToDecimal(txtVenda.Text);
+            v.DataVenda = Convert.ToDateTime(txtVenda.Text);
+            new Negocio.Veiculo().Update(v);
         }
     }
 }

@@ -44,5 +44,15 @@ namespace VisaoWPF
             dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = vplusf.OrderBy(desc => desc.desc).ThenBy(mode => mode.modelo);
         }
+
+        private void btnVender_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem != null)
+            {
+                var abrir = new vndVeiculo((Modelo.Veiculo)dataGrid.SelectedItem);
+                abrir.Show();
+            }
+        }
+
     }
 }
